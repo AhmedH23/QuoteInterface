@@ -7,11 +7,27 @@
 <style>
 	body {
 		background-image: repeating-linear-gradient(to left, wheat, tan);
+	} 
+	/* Dark mode styles */
+    .dark-mode {
+        background-image: repeating-linear-gradient(to left, #333333, #222222);
+		text-decoration: none;
+        color: gold;
+    }
+	.dark-mode .navbar a {
+        color: gold !important;
+    }
+	#dark-mode-toggle {
+		font-weight: bold;
+		color: black; 
 	}
+	.dark-mode #dark-mode-toggle {
+        color: white;
+    }
 	ul {
 		list-style-type: none;
 	}
-	li a {
+	a {
 		text-decoration: none;
 	}
 	#logo {
@@ -35,8 +51,11 @@
 	<ul class="navbar">
     	<li class="nav-item"><a class="nav-link" href="#"><strong>Home</strong></a></li>
     	<li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Categories.html">Categories</a></li>
-	  <li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Author.html">Author</a></li>
+	 <li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Author.html">Author</a></li>
 	  <li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/About.html">About</a></li>
+	<li class="nav-item">
+        <button id="dark-mode-toggle" class="nav-link fw-bold">Dark Mode</button>
+    </li>
 	</ul>
   </nav>
 </header>
@@ -81,4 +100,17 @@
   </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const toggleDarkMode = () => {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        if (body.classList.contains('dark-mode')) {
+            darkModeToggle.textContent = 'Light Mode';
+        } else {
+            darkModeToggle.textContent = 'Dark Mode';
+        }
+    }
+    document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+</script>
 </html>
