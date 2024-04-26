@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Categories</title>
+<title>Categories of Dogs</title>
 <style>
+	body {
+		background-image: repeating-linear-gradient(to left, wheat, tan);
+	}
 	ul {
 		list-style-type: none;
 	}
@@ -25,10 +28,29 @@
 		font-size: 20px;
 		padding-top: 25px;
 	}
-	
+	/* Dark mode styles */
+    .dark-mode {
+        background-image: repeating-linear-gradient(to left, #333333, #222222);
+		text-decoration: none;
+        color: gold;
+    }
+	.dark-mode .navbar a {
+        color: gold !important;
+    }
+	#dark-mode-toggle {
+		font-weight: bold;
+		color: black;
+	}
+	.dark-mode #dark-mode-toggle {
+        color: white;
+    }
+	.dark-mode .breadcrumb .breadcrumb-item {
+		background-color: gold; 
+		color: black !important;
+	}
 </style>
 </head>
-<body style="background-image: repeating-linear-gradient(to left, wheat, tan)" class="container-fluid">
+<body class="container-fluid">
 	<header>
 		<nav class="nav justify-content-around">
 			<div class="navbar-brand">
@@ -41,26 +63,79 @@
     			<li class="nav-item"><a class="nav-link" href="#"><strong>Categories</strong></a></li>
     			<li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Author.html">Author</a></li>
     			<li class="nav-item"><a class="nav-link" href="http://sp-cfsics.metrostate.edu/~ics377sp2406/About.html">About</a></li>
+				<form class="d-flex">
+        			<input class="form-control me-2" type="text" placeholder="Search">
+        			<button class="btn btn-primary" type="button">Search</button>
+      			</form>
+				<li class="nav-item">
+        			<button id="dark-mode-toggle" class="nav-link fw-bold">Dark Mode</button>
+    			</li>
   			</ul>
 		</nav>
 	</header>
-	<h1 class="page-title"><b>Categories</b></h1>
-	<h2 class="cat-title"><B>Dogs</B></h2>
+	<div class="mt-3 fw-bold" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/">Home</a></li>
+	<li class="breadcrumb-item"><a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Categories.html">Categories</a></li>
+    <li class="breadcrumb-item active" aria-current="Dog Categories page">Dog Categories</li>
+  </ol>
+</div>
+	<h1 class="page-title"><b>Categories / Dogs</b></h1>
 	<div class="dog-quotes">
 		<p>"I'm suspicious of people who don't like dogs, but I trust a dog when it doesn't like a person."  - Bill Murray</p>
 		<p>"Dogs are better than human beings because they know but do not tell."  - Emily Dickinson</p>
+		<span id="scrollToTop" class="float-end" style="display: none;">
+        <a href="#" class="scroll-to-top">
+            <i class="fas fa-angle-up fa-2x"></i>
+        </a>
+	</span>
 		<p>"Dogs' lives are too short. Their only fault, really."  - Agnes Sligh Turnbull</p>
 		<p>"The better I get to know men, the more I find myself loving dogs."  - Charles De Gaulie</p>
 		<p>"Scratch a dog and you'll find a permanent job."  - Franklin P. Jones</p>
 		<p>"Dogs never bite me. Just humans."  - Marilyn Monroe</p>
 		<p>"I've been accused in different dating situations of loving my dog more than I love the person I'm with."  - Carrie Underwood</p>
 	</div>
-
+	<footer class="text-center text-white mt-5 pb-3" style="background-color: #3f51b5">
+      <section class="mt-2">
+        <div class="row text-center d-flex justify-content-center pt-4">
+          <div class="col-md-2">
+            <h6 class="font-weight-bold">
+              <a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/" class="text-white">Home</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="font-weight-bold">
+              <a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Categories.html" class="text-white">Categories</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="font-weight-bold">
+              <a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/Author.html" class="text-white">Author</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="font-weight-bold">
+              <a href="http://sp-cfsics.metrostate.edu/~ics377sp2406/About.html" class="text-white">About</a>
+            </h6>
+          </div>
+        </div>
+      </section>
+    <hr/>
+    <i class="text-center"> Made with ❤️ by Ahmed | Albert | Kalpana </i>
+  </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const toggleDarkMode = () => {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        if (body.classList.contains('dark-mode')) {
+            darkModeToggle.textContent = 'Light Mode';
+        } else {
+            darkModeToggle.textContent = 'Dark Mode';
+        }
+    }
+    document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+</script>
 </html>
-
-
-
-
-
